@@ -205,6 +205,7 @@ module PaperTrail
         puts "\n\n\nitem_type: #{item_type}"
         puts "item_id: #{item_id}"
         puts "event: #{event}"
+        puts "whodunnit.length: #{whodunnit.to_s.length}" unless whodunnit.nil?
         puts "whodunnit: #{whodunnit}\n\n\n"
       end
     end
