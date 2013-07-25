@@ -6,6 +6,9 @@ module PaperTrail
 
     after_create :enforce_version_limit!
 
+    # DTDEBUG
+    before_create :dump_contents
+
     def self.with_item_keys(item_type, item_id)
       where :item_type => item_type, :item_id => item_id
     end
@@ -194,6 +197,16 @@ module PaperTrail
       return unless previous_versions.size > PaperTrail.config.version_limit
       excess_previous_versions = previous_versions - previous_versions.last(PaperTrail.config.version_limit)
       excess_previous_versions.map(&:destroy)
+    end
+
+    # DTDEBUG
+    def dump_contents
+      if event == "update"
+        puts "\n\n\nitem_type: #{item_type}"
+        puts "item_id: #{item_id}"
+        puts "event: #{event}"
+        puts "whodunnit: #{whodunnit}\n\n\n"
+      end
     end
 
   end

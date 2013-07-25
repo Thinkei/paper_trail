@@ -207,7 +207,6 @@ module PaperTrail
             :object    => object_to_string(item_before_change),
             :whodunnit => PaperTrail.whodunnit
           }
-          puts "data: #{data}"
           if version_class.column_names.include? 'object_changes'
             data[:object_changes] = PaperTrail.serializer.dump(changes_for_paper_trail)
           end
