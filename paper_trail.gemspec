@@ -3,7 +3,7 @@ require 'paper_trail/version_number'
 
 Gem::Specification.new do |s|
   s.name          = 'paper_trail'
-  s.version       = PaperTrail::VERSION
+  s.version       = '1.0'
   s.summary       = "Track changes to your models' data.  Good for auditing or versioning."
   s.description   = s.summary
   s.homepage      = 'http://github.com/airblade/paper_trail'
